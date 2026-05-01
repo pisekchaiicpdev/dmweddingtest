@@ -31,8 +31,8 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; gap: 2.5rem;
-      padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+      padding: 1rem 2rem;
       background: rgba(250,248,245,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--stone);
@@ -40,6 +40,11 @@
       font-size: 0.78rem;
       letter-spacing: 0.15em;
       font-weight: 300;
+    }
+    .nav-logo {
+      height: 36px;
+      width: auto;
+      opacity: 0.85;
     }
     nav a {
       color: var(--bark);
@@ -84,6 +89,15 @@
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .hero-signature {
+      max-width: min(480px, 80vw);
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+      filter: brightness(0) saturate(100%) invert(18%) sepia(10%) saturate(600%) hue-rotate(340deg) brightness(85%);
     }
 
     .hero-names {
@@ -533,6 +547,7 @@
   <nav>
     <a href="#countdown">วันงาน</a>
     <a href="#timeline">กำหนดการ</a>
+    <a href="#hero"><img src="logo.png" alt="DM" class="nav-logo" /></a>
     <a href="#gallery">แกลเลอรี</a>
     <a href="#rsvp">ตอบรับ</a>
     <a href="#location">สถานที่</a>
@@ -545,11 +560,7 @@
 
     <p class="hero-label">งานแต่งงานของเรา</p>
 
-    <div class="hero-names">
-      <em>มินจุน</em>
-      <span class="hero-ampersand">&amp;</span>
-      <em>จีอา</em>
-    </div>
+    <img src="signature.png" alt="มินจุน & จีอา" class="hero-signature" />
 
     <p class="hero-date">22 · 11 · 2026</p>
     <p class="hero-invite">ยินดีกับเราหน่อยงับ 🥹</p>
@@ -726,6 +737,7 @@
 
   <!-- FOOTER -->
   <footer>
+    <img src="logo.png" alt="DM" style="height:64px;width:auto;opacity:0.6;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;" />
     <div class="footer-names">มินจุน &amp; จีอา</div>
     <div class="footer-date">22 · 11 · 2026 · ลำปาง</div>
   </footer>

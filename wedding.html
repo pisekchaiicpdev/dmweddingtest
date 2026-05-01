@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>민준 & 지아 — Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Thai:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f5;
+      --stone: #e8e4de;
+      --mist: #d4cfc8;
+      --sage: #9ca89a;
+      --bark: #7a6f64;
+      --ink: #2c2825;
+      --blush: #e8d5cc;
+      --dust: #c9bfb5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans Thai', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 2.5rem;
+      padding: 1.2rem 2rem;
+      background: rgba(250,248,245,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--stone);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      font-weight: 300;
+    }
+    nav a {
+      color: var(--bark);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .hero-deco-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, var(--blush), transparent 70%);
+      top: -80px; right: -120px;
+    }
+    .hero-deco-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--sage), transparent 70%);
+      bottom: 60px; left: -100px;
+    }
+
+    .hero-label {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--sage);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+
+    .hero-names em {
+      font-style: italic;
+      color: var(--bark);
+    }
+
+    .hero-ampersand {
+      display: block;
+      font-size: 0.5em;
+      font-style: italic;
+      color: var(--mist);
+      margin: 0.2rem 0;
+    }
+
+    .hero-date {
+      margin-top: 2.5rem;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: var(--bark);
+      opacity: 0;
+      animation: fadeUp 1s 0.7s forwards;
+    }
+
+    .hero-invite {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: var(--bark);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--mist);
+    }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--mist), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 0 2rem;
+      margin: 0 auto;
+      max-width: 480px;
+    }
+    .divider-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, var(--mist), transparent);
+    }
+    .divider-icon {
+      font-size: 1rem; color: var(--mist);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--sage);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      text-align: center;
+      color: var(--ink);
+      margin-bottom: 3rem;
+    }
+
+    /* ── COUNTDOWN ── */
+    #countdown { text-align: center; }
+
+    .countdown-grid {
+      display: flex; justify-content: center; gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .countdown-item {
+      display: flex; flex-direction: column; align-items: center;
+      background: white;
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      padding: 1.5rem 2rem;
+      min-width: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--blush), var(--sage));
+    }
+
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--mist);
+      margin-top: 0.5rem;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    /* ── TIMELINE ── */
+    #timeline { }
+
+    .timeline-list {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--stone);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-left { text-align: right; }
+    .timeline-right { text-align: left; }
+
+    .timeline-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--blush);
+      border: 2px solid var(--dust);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--bark);
+    }
+
+    .timeline-event {
+      font-size: 0.85rem;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .timeline-desc {
+      font-size: 0.75rem;
+      color: var(--mist);
+      margin-top: 0.2rem;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-placeholder {
+      width: 100%; 
+      background: var(--stone);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--mist);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      transition: background 0.3s;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item:first-child .gallery-placeholder {
+      aspect-ratio: 1;
+    }
+
+    .gallery-placeholder span { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .gallery-item:hover .gallery-placeholder { background: var(--blush); }
+
+    .gallery-upload-hint {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--mist);
+      font-style: italic;
+    }
+
+    /* ── RSVP ── */
+    #rsvp { text-align: center; }
+
+    .rsvp-card {
+      background: white;
+      border: 1px solid var(--stone);
+      border-radius: 6px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .rsvp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--blush), var(--sage), var(--blush));
+    }
+
+    .rsvp-subtitle {
+      font-size: 0.82rem;
+      color: var(--bark);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .rsvp-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .rsvp-input {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      background: var(--cream);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .rsvp-input:focus { border-color: var(--sage); }
+
+    .rsvp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .rsvp-select {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      background: var(--cream);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .rsvp-btn {
+      margin-top: 0.5rem;
+      padding: 1rem;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .rsvp-btn:hover { background: var(--bark); transform: translateY(-1px); }
+
+    .rsvp-success {
+      display: none;
+      padding: 1.5rem;
+      background: #f0f4f0;
+      border-radius: 4px;
+      color: var(--sage);
+      font-size: 0.9rem;
+    }
+
+    /* ── LOCATION ── */
+    #location { text-align: center; }
+
+    .location-card {
+      background: white;
+      border: 1px solid var(--stone);
+      border-radius: 6px;
+      overflow: hidden;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .map-placeholder {
+      height: 220px;
+      background: var(--stone);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--bark);
+      font-size: 0.8rem;
+    }
+
+    .map-placeholder a {
+      color: var(--bark);
+      text-decoration: underline;
+      font-size: 0.75rem;
+    }
+
+    .location-info {
+      padding: 2rem;
+      text-align: left;
+    }
+
+    .location-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .location-address {
+      font-size: 0.82rem;
+      color: var(--bark);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      border-top: 1px solid var(--stone);
+    }
+
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--bark);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-date {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--mist);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav { gap: 1.2rem; font-size: 0.7rem; }
+      .countdown-item { min-width: 70px; padding: 1rem 1.2rem; }
+      .countdown-num { font-size: 2.2rem; }
+      .timeline-list::before { left: 20px; }
+      .timeline-item { grid-template-columns: 20px 1fr; }
+      .timeline-left { display: none; }
+      .timeline-right { text-align: left; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; }
+      .rsvp-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#countdown">D-DAY</a>
+    <a href="#timeline">กำหนดการ</a>
+    <a href="#gallery">แกลเลอรี</a>
+    <a href="#rsvp">RSVP</a>
+    <a href="#location">สถานที่</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+
+    <p class="hero-label">우리의 결혼식 · งานแต่งงานของเรา</p>
+
+    <div class="hero-names">
+      <em>민준</em>
+      <span class="hero-ampersand">&amp;</span>
+      <em>지아</em>
+    </div>
+
+    <p class="hero-date">22 · 11 · 2026</p>
+    <p class="hero-invite">ยินดีกับเราหน่อยงับ 🥹</p>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown">
+    <p class="section-label reveal">COUNT DOWN</p>
+    <h2 class="section-title reveal">เหลืออีกไม่นาน...</h2>
+    <div class="countdown-grid reveal">
+      <div class="countdown-item"><span class="countdown-num" id="cd-days">—</span><span class="countdown-label">วัน</span></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-hours">—</span><span class="countdown-label">ชั่วโมง</span></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-mins">—</span><span class="countdown-label">นาที</span></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-secs">—</span><span class="countdown-label">วินาที</span></div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <p class="section-label reveal">SCHEDULE</p>
+    <h2 class="section-title reveal">กำหนดการ</h2>
+    <div class="timeline-list reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-time">11:00</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-event">ลงทะเบียนแขก</div>
+          <div class="timeline-desc">ต้อนรับและรับของชำร่วย</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-time">12:00</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-event">พิธีแต่งงาน</div>
+          <div class="timeline-desc">Wedding Ceremony</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-time">13:00</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-event">รับประทานอาหารกลางวัน</div>
+          <div class="timeline-desc">Wedding Luncheon</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-time">14:30</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-event">ถ่ายภาพหมู่</div>
+          <div class="timeline-desc">Group Photo Session</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-time">15:00</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-event">เค้กมงคล & ของหวาน</div>
+          <div class="timeline-desc">Wedding Cake Cutting</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <p class="section-label reveal">GALLERY</p>
+    <h2 class="section-title reveal">ภาพความทรงจำ</h2>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <div class="gallery-placeholder" style="aspect-ratio:1;">
+          <span>🌸</span>Main Photo
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>📷</span>Photo 2</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>📷</span>Photo 3</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>📷</span>Photo 4</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>📷</span>Photo 5</div>
+      </div>
+    </div>
+    <p class="gallery-upload-hint reveal">* แทนที่ด้วยรูปจริงก่อน deploy ครับ</p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <p class="section-label reveal">R S V P</p>
+    <h2 class="section-title reveal">ยืนยันการเข้าร่วม</h2>
+    <div class="rsvp-card reveal">
+      <p class="rsvp-subtitle">กรุณาตอบรับภายใน <strong>1 พฤศจิกายน 2026</strong><br>เพื่อให้เราจัดเตรียมสถานที่ได้อย่างพร้อมเพรียง 🙏</p>
+      <div class="rsvp-form">
+        <input class="rsvp-input" type="text" placeholder="ชื่อ - นามสกุล" id="rsvp-name" />
+        <input class="rsvp-input" type="tel" placeholder="เบอร์โทรศัพท์" id="rsvp-phone" />
+        <div class="rsvp-row">
+          <select class="rsvp-select" id="rsvp-attend">
+            <option value="">ยืนยันการเข้าร่วม</option>
+            <option value="yes">มาแน่นอน 🎉</option>
+            <option value="no">ขอโทษ ไม่ได้มา</option>
+          </select>
+          <select class="rsvp-select" id="rsvp-guests">
+            <option value="1">1 ท่าน</option>
+            <option value="2">2 ท่าน</option>
+            <option value="3">3 ท่าน</option>
+            <option value="4">4 ท่าน</option>
+          </select>
+        </div>
+        <input class="rsvp-input" type="text" placeholder="ข้อความถึงเจ้าบ่าวเจ้าสาว (ถ้ามี)" id="rsvp-msg" />
+        <button class="rsvp-btn" onclick="submitRSVP()">ส่ง RSVP</button>
+      </div>
+      <div class="rsvp-success" id="rsvp-success">
+        ขอบคุณมากเลยนะ! 🥹<br>รอพบกันในวันงานครับ
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <p class="section-label reveal">VENUE</p>
+    <h2 class="section-title reveal">สถานที่จัดงาน</h2>
+    <div class="location-card reveal">
+      <div class="map-placeholder">
+        <span style="font-size:2rem">📍</span>
+        <span>บ้านพระยาสุเรนทร์ ลำปาง</span>
+        <a href="https://maps.google.com/?q=บ้านพระยาสุเรนทร์+ลำปาง" target="_blank">เปิดใน Google Maps →</a>
+      </div>
+      <div class="location-info">
+        <div class="location-name">บ้านพระยาสุเรนทร์</div>
+        <div class="location-address">
+          จังหวัดลำปาง<br>
+          วันอาทิตย์ที่ 22 พฤศจิกายน 2569<br>
+          เริ่มเวลา 11:00 น.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-names">민준 &amp; 지아</div>
+    <div class="footer-date">22 · 11 · 2026 · ลำปาง</div>
+  </footer>
+
+  <script>
+    // COUNTDOWN
+    function updateCountdown() {
+      const target = new Date('2026-11-22T11:00:00');
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hours').textContent = '0';
+        document.getElementById('cd-mins').textContent = '0';
+        document.getElementById('cd-secs').textContent = '0';
+        return;
+      }
+
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('cd-days').textContent = d;
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // REVEAL
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // RSVP
+    function submitRSVP() {
+      const name = document.getElementById('rsvp-name').value.trim();
+      const attend = document.getElementById('rsvp-attend').value;
+      if (!name || !attend) {
+        alert('กรุณากรอกชื่อและยืนยันการเข้าร่วมด้วยนะครับ');
+        return;
+      }
+      document.querySelector('.rsvp-form').style.display = 'none';
+      document.getElementById('rsvp-success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

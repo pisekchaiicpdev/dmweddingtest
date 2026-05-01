@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>민준 & 지아 — Wedding</title>
+  <title>มินจุน & จีอา — งานแต่งงาน</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Thai:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,8 +31,8 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; gap: 2.5rem;
-      padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+      padding: 1rem 2rem;
       background: rgba(250,248,245,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--stone);
@@ -40,6 +40,11 @@
       font-size: 0.78rem;
       letter-spacing: 0.15em;
       font-weight: 300;
+    }
+    .nav-logo {
+      height: 36px;
+      width: auto;
+      opacity: 0.85;
     }
     nav a {
       color: var(--bark);
@@ -84,6 +89,15 @@
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .hero-signature {
+      max-width: min(480px, 80vw);
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+      filter: brightness(0) saturate(100%) invert(18%) sepia(10%) saturate(600%) hue-rotate(340deg) brightness(85%);
     }
 
     .hero-names {
@@ -435,20 +449,11 @@
       margin: 0 auto;
     }
 
-    .map-placeholder {
-      height: 220px;
-      background: var(--stone);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      gap: 0.5rem;
-      color: var(--bark);
-      font-size: 0.8rem;
-    }
-
-    .map-placeholder a {
-      color: var(--bark);
-      text-decoration: underline;
-      font-size: 0.75rem;
+    .map-frame {
+      width: 100%;
+      height: 260px;
+      border: none;
+      display: block;
     }
 
     .location-info {
@@ -531,10 +536,11 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#countdown">D-DAY</a>
+    <a href="#countdown">วันงาน</a>
     <a href="#timeline">กำหนดการ</a>
+    <a href="#hero"><img src="logo.png" alt="DM" class="nav-logo" /></a>
     <a href="#gallery">แกลเลอรี</a>
-    <a href="#rsvp">RSVP</a>
+    <a href="#rsvp">ตอบรับ</a>
     <a href="#location">สถานที่</a>
   </nav>
 
@@ -543,20 +549,16 @@
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
 
-    <p class="hero-label">우리의 결혼식 · งานแต่งงานของเรา</p>
+    <p class="hero-label">งานแต่งงานของเรา</p>
 
-    <div class="hero-names">
-      <em>민준</em>
-      <span class="hero-ampersand">&amp;</span>
-      <em>지아</em>
-    </div>
+    <img src="signature.png" alt="มินจุน & จีอา" class="hero-signature" />
 
     <p class="hero-date">22 · 11 · 2026</p>
     <p class="hero-invite">ยินดีกับเราหน่อยงับ 🥹</p>
 
     <div class="hero-scroll">
       <div class="scroll-line"></div>
-      <span>SCROLL</span>
+      <span>เลื่อนลง</span>
     </div>
   </section>
 
@@ -564,7 +566,7 @@
 
   <!-- COUNTDOWN -->
   <section id="countdown">
-    <p class="section-label reveal">COUNT DOWN</p>
+    <p class="section-label reveal">นับถอยหลัง</p>
     <h2 class="section-title reveal">เหลืออีกไม่นาน...</h2>
     <div class="countdown-grid reveal">
       <div class="countdown-item"><span class="countdown-num" id="cd-days">—</span><span class="countdown-label">วัน</span></div>
@@ -578,7 +580,7 @@
 
   <!-- TIMELINE -->
   <section id="timeline">
-    <p class="section-label reveal">SCHEDULE</p>
+    <p class="section-label reveal">ตารางเวลา</p>
     <h2 class="section-title reveal">กำหนดการ</h2>
     <div class="timeline-list reveal">
 
@@ -600,7 +602,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-right">
           <div class="timeline-event">พิธีแต่งงาน</div>
-          <div class="timeline-desc">Wedding Ceremony</div>
+          <div class="timeline-desc">พิธีสมรส</div>
         </div>
       </div>
 
@@ -611,7 +613,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-right">
           <div class="timeline-event">รับประทานอาหารกลางวัน</div>
-          <div class="timeline-desc">Wedding Luncheon</div>
+          <div class="timeline-desc">งานเลี้ยงฉลองมงคลสมรส</div>
         </div>
       </div>
 
@@ -622,7 +624,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-right">
           <div class="timeline-event">ถ่ายภาพหมู่</div>
-          <div class="timeline-desc">Group Photo Session</div>
+          <div class="timeline-desc">บันทึกความทรงจำร่วมกัน</div>
         </div>
       </div>
 
@@ -633,7 +635,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-right">
           <div class="timeline-event">เค้กมงคล & ของหวาน</div>
-          <div class="timeline-desc">Wedding Cake Cutting</div>
+          <div class="timeline-desc">ตัดเค้กและเลี้ยงของหวาน</div>
         </div>
       </div>
 
@@ -644,25 +646,25 @@
 
   <!-- GALLERY -->
   <section id="gallery">
-    <p class="section-label reveal">GALLERY</p>
+    <p class="section-label reveal">แกลเลอรี</p>
     <h2 class="section-title reveal">ภาพความทรงจำ</h2>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
         <div class="gallery-placeholder" style="aspect-ratio:1;">
-          <span>🌸</span>Main Photo
+          <span>🌸</span>รูปหลัก
         </div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder"><span>📷</span>Photo 2</div>
+        <div class="gallery-placeholder"><span>📷</span>รูปที่ 2</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder"><span>📷</span>Photo 3</div>
+        <div class="gallery-placeholder"><span>📷</span>รูปที่ 3</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder"><span>📷</span>Photo 4</div>
+        <div class="gallery-placeholder"><span>📷</span>รูปที่ 4</div>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder"><span>📷</span>Photo 5</div>
+        <div class="gallery-placeholder"><span>📷</span>รูปที่ 5</div>
       </div>
     </div>
     <p class="gallery-upload-hint reveal">* แทนที่ด้วยรูปจริงก่อน deploy ครับ</p>
@@ -672,7 +674,7 @@
 
   <!-- RSVP -->
   <section id="rsvp">
-    <p class="section-label reveal">R S V P</p>
+    <p class="section-label reveal">ตอบรับเข้าร่วมงาน</p>
     <h2 class="section-title reveal">ยืนยันการเข้าร่วม</h2>
     <div class="rsvp-card reveal">
       <p class="rsvp-subtitle">กรุณาตอบรับภายใน <strong>1 พฤศจิกายน 2026</strong><br>เพื่อให้เราจัดเตรียมสถานที่ได้อย่างพร้อมเพรียง 🙏</p>
@@ -693,7 +695,7 @@
           </select>
         </div>
         <input class="rsvp-input" type="text" placeholder="ข้อความถึงเจ้าบ่าวเจ้าสาว (ถ้ามี)" id="rsvp-msg" />
-        <button class="rsvp-btn" onclick="submitRSVP()">ส่ง RSVP</button>
+        <button class="rsvp-btn" onclick="submitRSVP()">ส่งการตอบรับ</button>
       </div>
       <div class="rsvp-success" id="rsvp-success">
         ขอบคุณมากเลยนะ! 🥹<br>รอพบกันในวันงานครับ
@@ -705,20 +707,23 @@
 
   <!-- LOCATION -->
   <section id="location">
-    <p class="section-label reveal">VENUE</p>
+    <p class="section-label reveal">สถานที่จัดงาน</p>
     <h2 class="section-title reveal">สถานที่จัดงาน</h2>
     <div class="location-card reveal">
-      <div class="map-placeholder">
-        <span style="font-size:2rem">📍</span>
-        <span>บ้านพระยาสุเรนทร์ ลำปาง</span>
-        <a href="https://maps.google.com/?q=บ้านพระยาสุเรนทร์+ลำปาง" target="_blank">เปิดใน Google Maps →</a>
-      </div>
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?q=บ้านพระยาสุเรนทร์+ลำปาง&output=embed&hl=th&z=15"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
       <div class="location-info">
         <div class="location-name">บ้านพระยาสุเรนทร์</div>
         <div class="location-address">
           จังหวัดลำปาง<br>
           วันอาทิตย์ที่ 22 พฤศจิกายน 2569<br>
-          เริ่มเวลา 11:00 น.
+          เริ่มเวลา 11:00 น.<br><br>
+          <a href="https://maps.google.com/?q=บ้านพระยาสุเรนทร์+ลำปาง" target="_blank" style="color:var(--bark);font-size:0.8rem;">เปิดใน Google Maps →</a>
         </div>
       </div>
     </div>
@@ -726,7 +731,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-names">민준 &amp; 지아</div>
+    <img src="logo.png" alt="DM" style="height:64px;width:auto;opacity:0.6;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;" />
+    <div class="footer-names">มินจุน &amp; จีอา</div>
     <div class="footer-date">22 · 11 · 2026 · ลำปาง</div>
   </footer>
 
